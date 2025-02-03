@@ -57,7 +57,7 @@ class RAGService:
 
         # 5) Inicializar ReferenceMaker
         docs_directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "static", "docs")
-        self.reference_maker = ReferenceMaker(docs_directory=docs_directory, threshold=75)
+        self.reference_maker = ReferenceMaker(docs_directory=docs_directory, threshold=70)
 
 
     def load_coffee_keywords(self, filename: str):
@@ -96,7 +96,7 @@ class RAGService:
         # 2) If no keywords found, fallback to probability-based classification:
         classification_prompt = f"""
             Eres un clasificador de textos sencillo.
-            Dada la consulta del usuario, estima la probabilidad (0-100) de que la consulta sea sobre neurologia o cualquier disciplina o tematica relacionada con la neurologia 
+            Dada la consulta del usuario, estima la probabilidad (0-100) de que la consulta sea sobre infectologia o cualquier disciplina o tematica relacionada con la infectologia 
             Devuelve SOLO un número del 0 al 100 (un entero). Sin texto adicional.
 
             User query: {query}
